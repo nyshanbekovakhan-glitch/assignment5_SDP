@@ -2,7 +2,7 @@
 
 Assignment 5, Software Design Patterns.
 Author: Khanzada
-Domain: Space Station Inspection Robot (same domain as Assignment 4).
+Domain: Space Station Inspection Robot 
 
 An inspection robot moves between modules of a space station.
 It plans the order in which modules are visited and scores how dangerous each module is.
