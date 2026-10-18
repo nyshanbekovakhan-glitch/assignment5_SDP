@@ -167,9 +167,8 @@ Then it was refactored into the Strategy pattern.
 
 | Commit | Description | Link |
 |---|---|---|
-| Before | All three algorithms in `LegacyRiskAssessor`, chosen with `switch` | https://github.com/YOUR_USERNAME/space-station-strategy/commit/aebf03723004602607c584312ee9216da69257a1 |
-| After | Strategy interface, three strategy classes, `RiskAssessor` context, legacy class deleted | https://github.com/YOUR_USERNAME/space-station-strategy/commit/763b4ff8235201bc30c3761b5f8872aa062bb869 |
-
+| Before | All three algorithms in `LegacyRiskAssessor`, chosen with `switch` | https://github.com/nyshanbekovakhan-glitch/assignment5_SDP/commit/aebf03723004602607c584312ee9216da69257a1 |
+| After | Strategy interface, three strategy classes, `RiskAssessor` context, legacy class deleted | https://github.com/nyshanbekovakhan-glitch/assignment5_SDP/commit/763b4ff8235201bc30c3761b5f8872aa062bb869 |
 The same 7 tests in `RiskScoringBehaviorTest` pass on both commits.
 They have identical expected values.
 Only the private helper `score(...)` inside the test changed, because the way of creating the object changed.
