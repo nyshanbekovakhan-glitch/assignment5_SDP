@@ -2,8 +2,11 @@ package spacerobot;
 
 import org.junit.jupiter.api.Test;
 import spacerobot.datasource.SensorDataSource;
-import spacerobot.risk.LegacyRiskAssessor;
-import spacerobot.risk.RiskMode;
+import spacerobot.risk.RiskAssessor;
+import spacerobot.risk.RiskScoringStrategy;
+import spacerobot.risk.ThresholdRiskScoring;
+import spacerobot.risk.TrendRiskScoring;
+import spacerobot.risk.WeightedRiskScoring;
 
 import java.util.List;
 
@@ -11,8 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RiskScoringBehaviorTest {
 
+    private enum RiskMode {
+        THRESHOLD, WEIGHTED, TREND
+    }
+
     private double score(RiskMode mode, SensorDataSource source) {
-        return new LegacyRiskAssessor(source).assess(mode, "M1");
+        RiskScoringStrategy strategy = switch (mode) {
+            case THRESHOLD -> new ThresholdRiskScoring(source);
+            case WEIGHTED -> new WeightedRiskScoring(source);
+            case TREND -> new TrendRiskScoring(source);
+        };
+        return new RiskAssessor(strategy).assess("M1");
     }
 
     @Test
